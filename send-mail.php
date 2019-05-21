@@ -1,6 +1,4 @@
 <?php
-
-
 if( isset( $_POST['send-mail-btn'] ) && isset( $_FILES['attachment'] ) ){
     $from_email         = 'noreply@your_domain.com'; //from mail, it is mandatory with some hosts
     $recipient_email    = filter_input( INPUT_POST, 'email', FILTER_VALIDATE_EMAIL ); //recipient email (most cases it is your personal email)
@@ -29,6 +27,7 @@ if( isset( $_POST['send-mail-btn'] ) && isset( $_FILES['attachment'] ) ){
     {
         die('Upload error or No files uploaded');
     }
+
     //read from the uploaded file & base64_encode content for the mail
     $handle = fopen($file_tmp_name, "r");
     $content = fread($handle, $file_size);
@@ -36,6 +35,7 @@ if( isset( $_POST['send-mail-btn'] ) && isset( $_FILES['attachment'] ) ){
     $encoded_content = chunk_split(base64_encode($content));
 
     $boundary = md5("sanwebe");
+
     //headers
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "From:".$from_email."\r\n";
@@ -58,8 +58,8 @@ if( isset( $_POST['send-mail-btn'] ) && isset( $_FILES['attachment'] ) ){
     $sentMail = mail($recipient_email, $subject, $body, $headers);
     if($sentMail) //output success or failure messages
     {       
-        echo "Congrats! Your mail has been sent. Please check your inbox.";
+        header('Location: index.php?status=success');
     }else{
-        echo "Oops! Something wen wrong. Please check your code.";
+        header('Location: index.php?status=error');
     }
 }

@@ -1,3 +1,6 @@
+/*
+* Form validation
+* */
 ( function( $ ) {
     $( "form[name='send-mail']" ).on( 'submit', function( event ) {
         var name = $( "input[name='fName']" ),

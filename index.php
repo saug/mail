@@ -9,6 +9,21 @@
     <div class="container">
         <h1 class="header">Send Mail</h1> 
         <div class="form-wrapper">
+            <?php
+            if( isset( $_GET['status'] ) ):
+                if( "success" == $_GET['status'] ):
+            ?>
+                    <div class="alert alert-success" role="alert">
+                        E-mail has been successfull sent. Please check your inbox
+                    </div>
+            <?php elseif( "error" == $_GET['status'] ): ?>
+                    <div class="alert alert-danger" role="alert">
+                        Oops! Something wen wrong. Please check your code.
+                    </div>
+            <?php
+                endif;
+            endif;
+            ?>
             <form class="needs-validation" name="send-mail" action="send-mail.php" method="POST" enctype="multipart/form-data" novalidate>
                 <div class="form-row">
                     <div class="col-md-12 mb-12">
