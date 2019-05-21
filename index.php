@@ -85,15 +85,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-<!--<form enctype="multipart/form-data" method="POST" action="">-->
-<!--    <label>Your Name <input type="text" name="sender_name" /> </label> <br>-->
-<!--    <label>Your Email <input type="email" name="sender_email" /> </label> <br>-->
-<!--    <label>Subject <input type="text" name="subject" /> </label> <br>-->
-<!--    <label>Message <textarea name="message"></textarea> </label> <br>-->
-<!--    <label>Attachment <input type="file" name="my_file" /></label><br>-->
-<!--    <label><input type="submit" name="button" value="Submit" /></label>-->
-<!--</form>-->
-
-<?php 
-//echo "<pre>";print_r($_REQUEST);echo "</pre>"; //comment this line
-//echo "<pre>";print_r($_FILES);echo "</pre>"; //comment this line
